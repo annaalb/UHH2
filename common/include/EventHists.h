@@ -27,5 +27,5 @@ protected:
 
     uhh2::Event::Handle<double> h_ht;
     uhh2::Event::Handle<double> h_st;
-    uhh2::Event::Handle<FlavorParticle> h_primlep;
+    uhh2::Event::Handle<uhh2FlavorParticle> h_primlep;
 };

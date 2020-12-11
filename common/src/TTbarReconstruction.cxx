@@ -10,7 +10,7 @@ using namespace std;
 
 HighMassTTbarReconstruction::HighMassTTbarReconstruction(Context & ctx, const NeutrinoReconstructionMethod & neutrinofunction, const string & label): m_neutrinofunction(neutrinofunction) {
     h_recohyps = ctx.declare_event_output<vector<ReconstructionHypothesis>>(label);
-    h_primlep = ctx.get_handle<FlavorParticle>("PrimaryLepton");
+    h_primlep = ctx.get_handle<uhh2FlavorParticle>("PrimaryLepton");
 }
 
 HighMassTTbarReconstruction::~HighMassTTbarReconstruction() {}
@@ -86,7 +86,7 @@ bool HighMassTTbarReconstruction::process(uhh2::Event & event) {
 ////
 HighMassSkipJetsTTbarReconstruction::HighMassSkipJetsTTbarReconstruction(Context & ctx, const NeutrinoReconstructionMethod & neutrinofunction, const string & label, const int & N_skip_jets): m_neutrinofunction(neutrinofunction) {
     h_recohyps = ctx.declare_event_output<vector<ReconstructionHypothesis>>(label);
-    h_primlep = ctx.get_handle<FlavorParticle>("PrimaryLepton");
+    h_primlep = ctx.get_handle<uhh2FlavorParticle>("PrimaryLepton");
     n_skip_jets_ = N_skip_jets;
 }
 
@@ -171,7 +171,7 @@ TopTagReconstruction::TopTagReconstruction(Context & ctx, const NeutrinoReconstr
   m_neutrinofunction(neutrinofunction), topjetID_(tjetid), minDR_topjet_jet_(minDR_tj_j) {
 
   h_recohyps = ctx.declare_event_output<vector<ReconstructionHypothesis>>(label);
-  h_primlep = ctx.get_handle<FlavorParticle>("PrimaryLepton");
+  h_primlep = ctx.get_handle<uhh2FlavorParticle>("PrimaryLepton");
 }
 
 bool TopTagReconstruction::process(uhh2::Event & event) {

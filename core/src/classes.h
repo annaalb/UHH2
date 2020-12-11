@@ -1,5 +1,6 @@
 #include "UHH2/core/include/Particle.h"
 #include "UHH2/core/include/FlavorParticle.h"
+#include "UHH2/core/include/uhh2FlavorParticle.h"
 #include "UHH2/core/include/Jet.h"
 #include "UHH2/core/include/JetBTagInfo.h"
 #include "UHH2/core/include/Electron.h"
@@ -30,6 +31,8 @@ namespace {
     std::vector<Particle> ps;
     FlavorParticle pfl;
     std::vector<FlavorParticle> pfls;
+    uhh2FlavorParticle uhh2pfl;
+    std::vector<uhh2FlavorParticle> uhh2pfls;
     Jet jet;
     std::vector<Jet> jets;
     JetBTagInfo jetbtaginfo;

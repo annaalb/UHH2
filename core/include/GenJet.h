@@ -1,9 +1,9 @@
 #pragma once
 
-#include "FlavorParticle.h"
+#include "uhh2FlavorParticle.h"
 
 
-class GenJet : public FlavorParticle{
+class GenJet : public uhh2FlavorParticle{
 public:
   GenJet(){
     m_genparticles_indices.clear();
