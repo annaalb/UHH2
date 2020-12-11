@@ -25,7 +25,7 @@ EventHists::EventHists(uhh2::Context & ctx, const std::string & dirname): Hists(
 
     h_ht = ctx.get_handle<double>("HT");
     h_st = ctx.get_handle<double>("ST");
-    h_primlep = ctx.get_handle<FlavorParticle>("PrimaryLepton");
+    h_primlep = ctx.get_handle<uhh2FlavorParticle>("PrimaryLepton");
 }
 
 

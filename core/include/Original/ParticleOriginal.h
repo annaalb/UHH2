@@ -2,31 +2,12 @@
 
 #include "UHH2/core/include/LorentzVector.h"
 
-//NEW
-#include <vector>
-//#include "Math/PtEtaPhiE4D.h" //in new framework in class LorentzVector defined in same way
-#include "TObject.h"//??
-//NEW
-#include <cmath>
-//NEW
-#define PI M_PI
-
-//typedef ROOT::Math::LorentzVector< ROOT::Math::PtEtaPhiE4D< Double32_t > > LorentzVector;
 
 class Particle{
 public:
 
-  /// Default constructor
-  Particle(){
-    m_charge=0;
-    m_pt=0; 
-    m_eta=0; 
-    m_phi=0; 
-    m_energy=0; 
-  };
-  /// Default destructor
-  ~Particle(){
-  };
+   Particle(): m_charge(0), m_pt(0), m_eta(0), m_phi(0), m_energy(0){
+   }
 
   /// four-momentum
   LorentzVector v4() const{
@@ -39,7 +20,7 @@ public:
   }
 
   /// charge
-  float charge() const{return m_charge;}
+  short charge() const{return m_charge;}
   /// transverse momentum
   float pt() const {return m_pt;}
   /// pseudo-rapidity
@@ -50,7 +31,7 @@ public:
   float energy() const{return m_energy;}
 
   /// set charge
-  void set_charge(float charge){m_charge=charge;}
+  void set_charge(short charge){m_charge=charge;}
   /// set transverse momentum
   void set_pt(float pt){m_pt=pt;}
   /// set pseudo-rapidity
@@ -67,24 +48,10 @@ public:
     set_phi(v4.Phi());
     set_energy(v4.E());
   }
-  //NEW
-  /// distance in phi to particle p2
-  double deltaPhi(const Particle & p2) const{
-    double deltaphi = fabs(this->phi() - p2.phi());
-    if(deltaphi > M_PI) deltaphi = 2* M_PI - deltaphi;
-    return deltaphi;
-  }
-  //NEW
-  /// distance in eta-phi plane to particle p2
- double deltaR(const Particle & p2) const{
-   double deltaeta = m_eta - p2.m_eta;
-   double dphi = deltaPhi(p2);
-   return sqrt(deltaeta * deltaeta + dphi * dphi);
- }
 
 private:
-    //NEW
-  float m_charge;
+
+  short m_charge;
   float m_pt;
   float m_eta;
   float m_phi;
@@ -94,4 +61,3 @@ private:
 inline bool operator==(const Particle& lhs, const Particle& rhs) {
   return (lhs.v4() == rhs.v4());
 }
-

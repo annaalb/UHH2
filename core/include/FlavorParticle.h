@@ -1,27 +1,26 @@
 #pragma once
 
 #include "Particle.h"
+#include <iomanip>
+#include <iostream>
+#include <string>
+#include <sstream>
 
 
 class FlavorParticle : public Particle{
-public:
+ public:
   FlavorParticle(){
-      m_pdgId = -1e4;
-      m_partonFlavour = -1e4;
-      m_hadronFlavour = -1e4;
-  }
-  int partonFlavour() const{return m_partonFlavour;}
-  int hadronFlavour() const{return m_hadronFlavour;}
-  void set_partonFlavour(int x){  m_partonFlavour=x;}
-  void set_hadronFlavour(int x){  m_hadronFlavour=x;}
+    m_pdgId=0;
+  };
+  ~FlavorParticle(){
+  };
 
   int pdgId() const{return m_pdgId;}
+  int flavor() const{return m_pdgId;}
+
   void set_pdgId(int x){  m_pdgId=x;}
-  
-private:
-  int m_pdgId;  
-  int m_partonFlavour;//in 94_X CMSSW based on the highest pt of all partons clustered in a jet 
-  int m_hadronFlavour;
+  void set_flavor(int x){  m_pdgId=x;}
 
+ private:
+  int m_pdgId;
 };
-

@@ -613,7 +613,7 @@ NtupleWriter::NtupleWriter(const edm::ParameterSet& iConfig): outfile(0), tr(0),
     for (size_t j=0; j<triggerObjects_sources.size(); j++){
       TString name = "triggerObjects_";
       name += triggerObjects_sources[j].c_str();
-      branch(tr, name, "std::vector<FlavorParticle>", &triggerObjects_out[j]);
+      branch(tr, name, "std::vector<uhh2FlavorParticle>", &triggerObjects_out[j]);
     }
     auto extraTriggers_sources = iConfig.getParameter<std::vector<edm::InputTag> >("extra_trigger_bits");
     for (const auto & etItr : extraTriggers_sources){
@@ -1173,7 +1173,7 @@ bool NtupleWriter::filter(edm::Event& iEvent, const edm::EventSetup& iSetup) {
                  std::vector<std::string> filters  = obj.filterLabels();
                  for(size_t l=0; l<filters.size(); l++){
                    if ( filters[l]== trname){
-                     FlavorParticle p;
+                     uhh2FlavorParticle p;
                      p.set_pt(obj.pt());
                      p.set_eta(obj.eta());
                      p.set_phi(obj.phi());

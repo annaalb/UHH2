@@ -41,7 +41,7 @@ public:
 private:
     NeutrinoReconstructionMethod m_neutrinofunction;
     uhh2::Event::Handle<std::vector<ReconstructionHypothesis>> h_recohyps;
-    uhh2::Event::Handle<FlavorParticle> h_primlep;
+    uhh2::Event::Handle<uhh2FlavorParticle> h_primlep;
 };
 
 
@@ -76,7 +76,7 @@ private:
     int n_skip_jets_;
     NeutrinoReconstructionMethod m_neutrinofunction;
     uhh2::Event::Handle<std::vector<ReconstructionHypothesis>> h_recohyps;
-    uhh2::Event::Handle<FlavorParticle> h_primlep;
+    uhh2::Event::Handle<uhh2FlavorParticle> h_primlep;
 };
 
 
@@ -103,7 +103,7 @@ class TopTagReconstruction: public uhh2::AnalysisModule {
  private:
   NeutrinoReconstructionMethod m_neutrinofunction;
   uhh2::Event::Handle<std::vector<ReconstructionHypothesis>> h_recohyps;
-  uhh2::Event::Handle<FlavorParticle> h_primlep;
+  uhh2::Event::Handle<uhh2FlavorParticle> h_primlep;
 
   TopJetId topjetID_;
   float minDR_topjet_jet_;

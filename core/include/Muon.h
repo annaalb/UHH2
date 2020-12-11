@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Particle.h"
-#include "FlavorParticle.h"
+#include "uhh2FlavorParticle.h"
 #include "source_candidate.h"
 
 #include <stdint.h>
@@ -234,9 +234,9 @@ class Muon : public Particle {
     return ( m_sumChargedHadronPt + std::max( 0.0, m_sumNeutralHadronEt + m_sumPhotonEt - 0.5*m_sumPUPt) ) / pt();
   }
 
-  operator FlavorParticle() const {
+  operator uhh2FlavorParticle() const {
 
-    FlavorParticle fp;
+    uhh2FlavorParticle fp;
     fp.set_charge(this->charge());
     fp.set_pt(this->pt());
     fp.set_eta(this->eta());

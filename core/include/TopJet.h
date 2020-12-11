@@ -42,7 +42,7 @@ public:
       jetNTracks,
       nSV
     };
-   
+
    static tag tagname2tag(const std::string & tagname){
       if(tagname == "mass") return mass;
       if(tagname == "fRec") return fRec;
@@ -112,7 +112,7 @@ public:
       m_btag_MassDecorrelatedDeepBoosted_probZqq=-2;
       m_btag_MassDecorrelatedDeepBoosted_probHqqqq=-2;
       m_btag_MassDecorrelatedDeepBoosted_probZbb=-2;
-      
+
       m_btag_DeepDoubleBvLJet_probHbb=-2;
       m_btag_DeepDoubleBvLJet_probQCD=-2;
       m_btag_DeepDoubleCvBJet_probHbb=-2;
@@ -163,7 +163,12 @@ public:
   float tau2_groomed() const {return m_tau2_groomed;}
   float tau3_groomed() const {return m_tau3_groomed;}
   float tau4_groomed() const {return m_tau4_groomed;}
-  
+
+  // HOTVR specific getters
+  double max_distance() const {return m_max_distance;}
+  double hotvr_mmin() const {return m_hotvr_mmin;}
+  double hotvr_fpt1() const {return m_hotvr_fpt1;}
+
   // energy correlation functions, N2 & N3, each with beta=1 or beta=2
   // calculated on softdrop jets
   float ecfN2_beta1() const {return m_ecfN2_beta1;}
@@ -176,7 +181,7 @@ public:
   float softdropmass() const {return m_softdropmass;}
 
   const std::vector<Jet> & subjets() const{return m_subjets;}
-  
+
   float get_tag(tag t) const{ return tags.get_tag(static_cast<int>(t)); }
   float has_tag(tag t) const{ return tags.has_tag(static_cast<int>(t)); }
 
@@ -277,7 +282,7 @@ public:
 
 
 
-  
+
 
 
   // setters
@@ -291,6 +296,11 @@ public:
   void set_tau3_groomed(float x){m_tau3_groomed = x;}
   void set_tau4_groomed(float x){m_tau4_groomed = x;}
 
+  // HOTVR specific setters
+  void set_max_distance(double x){m_max_distance = x;}
+  void set_hotvr_mmin(double x){m_hotvr_mmin = x;}
+  void set_hotvr_fpt1(double x){m_hotvr_fpt1 = x;}
+
   void set_ecfN2_beta1(float x){m_ecfN2_beta1 = x;}
   void set_ecfN2_beta2(float x){m_ecfN2_beta2 = x;}
   void set_ecfN3_beta1(float x){m_ecfN3_beta1 = x;}
@@ -303,7 +313,7 @@ public:
   void add_subjet(const Jet & subjet){m_subjets.push_back(subjet);}
 
   void set_subjets(std::vector<Jet> subjets){ std::swap(m_subjets, subjets);} // note: move not possible in C++98
-  
+
   void set_tag(tag t, float value){ tags.set_tag(static_cast<int>(t), value);}
 
   void set_btag_BoostedDoubleSecondaryVertexAK8(float x){m_btag_BoostedDoubleSecondaryVertexAK8=x;}
@@ -390,7 +400,12 @@ private:
   float m_tau2_groomed;
   float m_tau3_groomed;
   float m_tau4_groomed;
-  
+
+  //HOTVR specific
+  double m_max_distance;
+  double m_hotvr_mmin;
+  double m_hotvr_fpt1;
+
   float m_ecfN2_beta1;
   float m_ecfN2_beta2;
   float m_ecfN3_beta1;
@@ -466,4 +481,3 @@ private:
 
   Tags tags;
 };
-
