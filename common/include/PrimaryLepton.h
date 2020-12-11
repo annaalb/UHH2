@@ -22,7 +22,7 @@ public:
     virtual ~PrimaryLepton();
 
 private:
-    uhh2::Event::Handle<FlavorParticle> h_primlep;
+    uhh2::Event::Handle<uhh2FlavorParticle> h_primlep;
     float min_ele_pt_;
     float min_mu_pt_;
 };

@@ -15,6 +15,8 @@
 #pragma link C++ class std::vector<RecParticle>+;
 #pragma link C++ class FlavorParticle+;
 #pragma link C++ class std::vector<FlavorParticle>+;
+#pragma link C++ class uhh2FlavorParticle+;
+#pragma link C++ class std::vector<uhh2FlavorParticle>+;
 #pragma link C++ class Jet+;
 #pragma link C++ class std::vector<Jet>+;
 #pragma link C++ class GenJet+;

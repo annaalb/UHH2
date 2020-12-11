@@ -2,7 +2,7 @@
 
 #include "RecParticle.h"
 #include "Tags.h"
-#include "FlavorParticle.h"
+#include "uhh2FlavorParticle.h"
 #include "source_candidate.h"
 #include <vector>
 

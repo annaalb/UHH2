@@ -1,12 +1,12 @@
 #pragma once
 
-#include "FlavorParticle.h"
+#include "uhh2FlavorParticle.h"
 #include "Tags.h"
 #include "JetBTagInfo.h"
 
 #include <vector>
 
-class Jet : public FlavorParticle {
+class Jet : public uhh2FlavorParticle {
 
  public:
   enum tag {

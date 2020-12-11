@@ -3,7 +3,7 @@
 #include "RecParticle.h"
 //#include "Particle.h"
 #include "Tags.h"
-#include "FlavorParticle.h"
+#include "uhh2FlavorParticle.h"
 #include "source_candidate.h"
 #include <vector>
 
@@ -234,9 +234,9 @@ class Electron : public RecParticle {
     return ( m_chargedHadronIso + std::max( 0.0, m_neutralHadronIso + m_photonIso - rho*m_AEff ) ) / pt();
   }
 
-  operator FlavorParticle() const {
+  operator uhh2FlavorParticle() const {
 
-    FlavorParticle fp;
+    uhh2FlavorParticle fp;
     fp.set_charge(this->charge());
     fp.set_pt(this->pt());
     fp.set_eta(this->eta());

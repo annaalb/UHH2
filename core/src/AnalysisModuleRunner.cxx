@@ -610,14 +610,16 @@ void AnalysisModuleRunner::AnalysisModuleRunnerImpl::begin_input_data(AnalysisMo
         eh->setup_L1EtS_seeds(context->get("L1EtSseedsCollection", ""));
         eh->setup_L1T_seeds(context->get("L1TseedsCollection", ""));
 
+        
         bool is_mc = context->get("dataset_type") == "MC";
         if (is_mc) {
-	  try{
-            eh->setup_genInfo(context->get("GenInfoName", "genInfo"));}
-	  catch(const std::runtime_error& error){
-	    std::cout<<"Problem with genInfo in AnalysisModuleRunner.cxx"<<std::endl;
-	    std::cout<<error.what();
-	  }
+	  //try{
+          //  eh->setup_genInfo(context->get("GenInfoName", "genInfo"));}
+	  //catch(const std::runtime_error& error){
+	  // std::cout<<"Problem with genInfo in AnalysisModuleRunner.cxx"<<std::endl;
+	  //  std::cout<<error.what();
+	  //}
+	  /*
 	  try{
             eh->setup_genjets(context->get("GenJetCollection", ""));}
 	  catch(const std::runtime_error& error){
@@ -625,19 +627,20 @@ void AnalysisModuleRunner::AnalysisModuleRunnerImpl::begin_input_data(AnalysisMo
 	    std::cout<<error.what();
 	  }
 	  eh->setup_gentopjets(context->get("GenTopJetCollection", ""));
+	  */
 	  try{
             eh->setup_genparticles(context->get("GenParticleCollection", ""));}
 	  catch(const std::runtime_error& error){
 	    std::cout<<"Problem with genParticleCollection in AnalysisModuleRunner.cxx"<<std::endl;
 	    std::cout<<error.what();
 	  }
-	    eh->setup_genmet(context->get("genMETName", ""));
+	  //eh->setup_genmet(context->get("genMETName", ""));
         }
 
-        m_readTrigger = string2bool(context->get("readTrigger", "true"));
-        if (m_readTrigger) {
-            eh->setup_trigger();
-        }
+        //m_readTrigger = string2bool(context->get("readTrigger", "true"));
+        //if (m_readTrigger) {
+        //    eh->setup_trigger();
+        //}
 
         use_sframe_weight = string2bool(context->get("use_sframe_weight", "true"));
     }
@@ -658,6 +661,7 @@ void AnalysisModuleRunner::BeginInputData(const SInputData& in) {
 
 void AnalysisModuleRunner::BeginInputFile(const SInputData&) {
     // fill trigger names map:
+  /*
     if (pimpl->m_readTrigger) {
         std::map<int, std::vector<std::string>> run2triggernames;
         // find triggernames for all runs in this file:
@@ -694,6 +698,7 @@ void AnalysisModuleRunner::BeginInputFile(const SInputData&) {
         tnb->SetAddress(oldaddr_tnb);
         pimpl->eh->set_infile_triggernames(move(run2triggernames));
     }
+  */
 
     // setup additional branches, if not done yet:
     if(pimpl->first_file && !pimpl->additional_branches.empty()){

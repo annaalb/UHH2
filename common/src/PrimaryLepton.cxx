@@ -8,7 +8,7 @@ PrimaryLepton::PrimaryLepton(Context & ctx,
                              const std::string & h_name,
                              float min_ele_pt,
                              float min_mu_pt) :
-    h_primlep(ctx.get_handle<FlavorParticle>(h_name)),
+    h_primlep(ctx.get_handle<uhh2FlavorParticle>(h_name)),
     min_ele_pt_(min_ele_pt),
     min_mu_pt_(min_mu_pt)
 {}
@@ -16,7 +16,7 @@ PrimaryLepton::PrimaryLepton(Context & ctx,
 bool PrimaryLepton::process(uhh2::Event & event) {
     assert(event.muons || event.electrons);
     double ptmax = -infinity;
-    FlavorParticle primlep;
+    uhh2FlavorParticle primlep;
     if(event.electrons) {
         for(const auto & ele : *event.electrons) {
             float ele_pt = ele.pt();
