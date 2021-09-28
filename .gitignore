@@ -25,3 +25,4 @@ JRDatabase/*
 pydump.py
 Makefile.local
 JetsTest/*
+*/workdir*
