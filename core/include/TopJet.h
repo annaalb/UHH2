@@ -168,6 +168,7 @@ public:
   double max_distance() const {return m_max_distance;}
   double hotvr_mmin() const {return m_hotvr_mmin;}
   double hotvr_fpt1() const {return m_hotvr_fpt1;}
+  double area() const {return m_area;} // jet area
 
   // energy correlation functions, N2 & N3, each with beta=1 or beta=2
   // calculated on softdrop jets
@@ -300,6 +301,7 @@ public:
   void set_max_distance(double x){m_max_distance = x;}
   void set_hotvr_mmin(double x){m_hotvr_mmin = x;}
   void set_hotvr_fpt1(double x){m_hotvr_fpt1 = x;}
+  void set_area(double x){m_area = x;}
 
   void set_ecfN2_beta1(float x){m_ecfN2_beta1 = x;}
   void set_ecfN2_beta2(float x){m_ecfN2_beta2 = x;}
@@ -405,6 +407,7 @@ private:
   double m_max_distance;
   double m_hotvr_mmin;
   double m_hotvr_fpt1;
+  double m_area;
 
   float m_ecfN2_beta1;
   float m_ecfN2_beta2;
